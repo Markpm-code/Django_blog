@@ -33,7 +33,7 @@ DEBUG = False
 
 X_FRAME_OPTIONS ='SAMEORIGIN'
 
-ALLOWED_HOSTS = ['codestar-blog1.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['codestar-blog1-8911d6384e81.herokuapp.com', 'localhost']
 
 
 # Application definition

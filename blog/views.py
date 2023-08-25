@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from django.contrib import messages
 from .models import Post
 from .forms import CommentForm
 
@@ -51,7 +50,6 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-            messages.success(request,'Comment Successful')
         else:
             comment_form = CommentForm()
 
@@ -69,7 +67,7 @@ class PostDetail(View):
 
 class PostLike(View):
 
-    def post(self, request, slug):
+    def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
 
         if post.likes.filter(id=request.user.id).exists():
